@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[scripts]
+"start"="uvicorn app.main:app --reload"
+
+[dev-packages]
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+gunicorn = "*"
+pydantic = {extras = ["dotenv"], version = "*"}
+requests = "*"
+
+[requires]
+python_version = "3.8"

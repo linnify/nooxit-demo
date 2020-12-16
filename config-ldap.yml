@@ -1,0 +1,47 @@
+issuer: http://0.0.0.0:5556/dex
+storage:
+  type: sqlite3
+  config:
+    file: ":memory:"
+web:
+  http: 0.0.0.0:5556
+  allowedOrigins: ['*']
+
+connectors:
+  - type: ldap
+    name: OpenLDAP
+    id: ldap
+    config:
+      host: ldap:389
+      insecureNoSSL: true
+
+      bindDN: cn=admin,dc=linnify,dc=org
+      bindPW: admin
+
+      usernamePrompt: Email Address
+
+      userSearch:
+        baseDN: ou=People,dc=linnify,dc=org
+        filter: "(objectClass=person)"
+        username: mail
+        idAttr: DN
+        emailAttr: mail
+        nameAttr: cn
+
+      groupSearch:
+        baseDN: ou=Groups,dc=linnify,dc=org
+        filter: "(objectClass=groupOfNames)"
+
+        userMatchers:
+          - userAttr: DN
+            groupAttr: member
+
+        nameAttr: cn
+
+staticClients:
+  - id: linnify-app
+    redirectURIs:
+      - http://localhost:8000/auth/callback
+      - http://localhost:8000/docs/oauth2-redirect
+    name: "Linnify app"
+    secret: ZXhhbXBsZS1hcHAtc2VjcmV0
