@@ -1,7 +1,16 @@
 const LOCAL_STORAGE_TOKEN = 'auth-token'
+const LOCAL_STORAGE_ID_TOKEN = 'id-token'
+
+export function setIdToken(idToken) {
+  localStorage.setItem(LOCAL_STORAGE_ID_TOKEN, idToken)
+}
+
+export function getIdToken() {
+  return localStorage.getItem(LOCAL_STORAGE_ID_TOKEN)
+}
 
 export function clearLocalToken() {
-  localStorage.removeItem(LOCAL_STORAGE_TOKEN)
+  localStorage.clear()
 }
 
 export function setLocalToken(token) {

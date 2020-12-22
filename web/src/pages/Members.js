@@ -12,8 +12,9 @@ const MemberList = styled.ul`
   flex-direction: column;
 `
 
-function Members() {
-  const [members, error] = useApiResource(getMembers)
+function Members({ user }) {
+  const hasPermission = user.groups.includes("members")
+  const [members, error] = useApiResource(getMembers, hasPermission)
   const renderMembers = members.map((value, index) => <ResourceItem key={index} leftText={value.team} rightText={value.role} />)
   
   return (

@@ -1,7 +1,13 @@
 import { useLocation, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {clearLocalToken, getLocalToken, setLocalToken} from "../helpers/utils";
-import {getProfile} from "../services/api";
+import {
+  clearLocalToken,
+  getIdToken,
+  getLocalToken,
+  setIdToken,
+  setLocalToken
+} from "../helpers/utils";
+import jwt_decode from "jwt-decode";
 const queryString = require('query-string');
 
 /**
@@ -25,6 +31,7 @@ function useAuth() {
         search: '',
       })
       setLocalToken(parsed.token)
+      setIdToken(parsed.id_token)
     }
     const currentToken = getLocalToken()
     if (!currentToken) {
@@ -43,7 +50,8 @@ function useAuth() {
    */
   async function loadUserProfile() {
     try {
-      const profile = await getProfile()
+      const idToken = getIdToken()
+      const profile = jwt_decode(idToken)
       setUser(profile)
     } catch (e) {
       logout()

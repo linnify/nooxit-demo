@@ -22,7 +22,3 @@ if settings.BACKEND_CORS_ORIGINS:
         allow_headers=["*", 'Authorization'],
     )
 
-
-@app.get("/")
-async def root():
-    return {"message": "Ok"}

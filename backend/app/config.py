@@ -9,10 +9,10 @@ class Settings(BaseSettings):
     CLIENT_SECRET: str
     CLIENT_ID: str = 'linnify-app'
     
-    AUTHORIZATION_URL: str = 'http://127.0.0.1:5556/dex/auth'
-    AUTHORIZATION_TOKEN_URL: str = 'http://127.0.0.1:5556/dex/token'
-    AUTHORIZATION_REDIRECT_URI: str = 'http://localhost:8000/auth/callback'
-    AUTHORIZATION_USER_INFO_URL: str = 'http://127.0.0.1:5556/dex/userinfo'
+    AUTHORIZATION_URL: str
+    AUTHORIZATION_TOKEN_URL: str
+    AUTHORIZATION_REDIRECT_URI: str
+    AUTHORIZATION_USER_INFO_URL: str
     
     # BACKEND_CORS_ORIGINS is a JSON-formatted list of origins
     # e.g: '["http://localhost", "http://localhost:4200", "http://localhost:3000"]'

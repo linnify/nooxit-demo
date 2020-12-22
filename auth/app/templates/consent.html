@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Nooxit</title>
+
+  <link href="/static/styles.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="box">
+    <img src="/static/logo.png" class="logo">
+
+    <form action="/consent" method="POST" >
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
+      <input type="hidden" name="challenge" value="{{ challenge }}"/>
+
+      <p>
+        Hi <strong>{{ user }}</strong>, application <strong>{{ client.client_name or client.client_id }}</strong> wants access resources on your behalf
+      </p>
+
+      <div>
+        {% for scope in requested_scope %}
+          <p> {{ scope }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="buttons">
+         <button class="primary-button" type="submit" name="submit" value="proceed">
+          Authorize
+        </button>
+        <button class="primary-button cancel-button" type="submit" name="submit" value="cancel">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

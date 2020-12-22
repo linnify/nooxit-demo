@@ -6,8 +6,8 @@
 
 - For the API part we used FastAPI framework
 - The web client was written in React
-- For the OpenID Provider we used Dex
-- LDAP connector
+- For the OpenID Provider we used Ory Hydra
+- Custom Auth Provider
 
 #### Run the project
 
@@ -16,7 +16,7 @@ In order to start the project you need to run the following command
 docker-compose up -d
 ```
 
-The LDAP system has 2 users with different groups
+The Auth system has 2 users with different groups
 
 ```
 email: vlad.rusu@linnify.com

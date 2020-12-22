@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "auth"
+version = "0.1.0"
+description = ""
+authors = ["vladrusus <vlad.rusu@linnify.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fastapi = "^0.63.0"
+uvicorn = "^0.13.2"
+gunicorn = "^20.0.4"
+Jinja2 = "^2.11.2"
+aiofiles = "^0.6.0"
+ory-hydra-client = "^1.8.5"
+python-multipart = "^0.0.5"
+Starlette-WTF = "^0.3.0"
+pydantic = "^1.7.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

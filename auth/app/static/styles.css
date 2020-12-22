@@ -1,0 +1,73 @@
+html body {
+    height: 100%;
+    width: 100%;
+}
+
+
+.container {
+    display: flex;
+    height: 100%;
+    justify-content: start;
+    align-items: start;
+}
+
+.box {
+    width: 400px;
+    margin: 100px auto;
+    padding: 32px;
+    border-radius: 8px;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 20px 0 rgba(25,32,56,.1)!important;
+
+    display: flex;
+    flex-direction: column;;
+}
+
+.logo {
+    width: 150px;
+    margin: auto auto 24px auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-top: 32px;
+}
+
+.primary-button {
+    background-color: #f66e46;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    margin-bottom: 16px;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 20px 0 rgba(25,32,56,.1)!important;
+}
+
+.cancel-button {
+    background-color: white;
+    color: black;
+}
+
+.error {
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: white;
+    background-color: #ff0015;
+}
+
+input {
+    width: 100%;
+    margin-top: 24px;
+    border-radius: 8px;
+    padding: 10px 8px;
+    line-height: 16px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid #cbcbcb;
+}

@@ -13,8 +13,9 @@ const UsersList = styled.ul`
   flex-direction: column;
 `
 
-function Users() {
-  const [users, error] = useApiResource(getUsers)
+function Users({ user }) {
+  const hasPermission = user.groups.includes("users")
+  const [users, error] = useApiResource(getUsers, hasPermission)
   const renderUsers = users.map((value, index) => <ResourceItem key={index} leftText={value.name} rightText={`${value.age} years`} />)
   
   return (

@@ -27,7 +27,7 @@ function Login({ scopes }) {
   
   const onLogin = async () => {
     const url = `${API_HOST}/auth/login`
-    const redirectPage = window.location.href
+    const redirectPage = window.location.href.split('?')[0]
     const response = await axios.post(url, { redirect_page: redirectPage, scope: scopes })
     window.location = response.data.authorization_url
   };
